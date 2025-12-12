@@ -1,0 +1,9 @@
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        arr=[]
+        for n in nums:
+            if n not in arr:
+                arr.append(n)
+        for n in range(len(arr)):
+            nums[n]=arr[n]   
+        return len(arr)
