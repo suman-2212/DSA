@@ -1,0 +1,11 @@
+class Solution:
+    def findMin(self, n):
+       # code here
+        cost = 10
+        cnt = 0
+        while n>0:
+            cnt += n //cost
+            n = n%cost
+            cost = cost//2
+        return cnt
+            
