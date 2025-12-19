@@ -1,0 +1,19 @@
+import heapq
+class Solution:
+    def fractionalKnapsack(self, val, wt, cap):
+        # Your code goes here
+        heap = []
+        for v,w in zip(val,wt):
+            heapq.heappush(heap,(-(v/w),v,w))
+        cost = 0
+        while heap and cap > 0:
+            ratio,value,weight = heapq.heappop(heap)
+            if cap == 0:
+                break
+            elif cap >= weight:
+                cost += value
+                cap -= weight
+            else:
+                cost += -ratio * cap
+                cap = 0
+        return cost
