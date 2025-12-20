@@ -1,0 +1,17 @@
+#User function Template for python3
+
+class Solution:
+    def maximumMeetings(self,start,end):
+        # code here
+        time = []
+        for i,j in zip(start,end):
+            time.append([i,j])
+        time.sort(key = lambda n:n[1])
+        
+        free_time = -1
+        cnt = 0
+        for i in range(len(time)):
+            if free_time < time[i][0]:
+                cnt += 1
+                free_time  = time[i][1]
+        return cnt
