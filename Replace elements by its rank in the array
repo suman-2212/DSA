@@ -1,0 +1,19 @@
+class Solution:
+    def replaceWithRank(self, n, arr):
+        # Step 1: Copy and sort
+        temp = sorted(arr)
+        
+        # Step 2: Assign ranks
+        rank = {}
+        current_rank = 1
+        for x in temp:
+            if x not in rank:
+                rank[x] = current_rank
+                current_rank += 1
+        
+        # Step 3: Replace elements by rank
+        result = []
+        for x in arr:
+            result.append(rank[x])
+        
+        return result
